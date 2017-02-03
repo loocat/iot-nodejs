@@ -6,8 +6,8 @@
   "scripts": {
     "clean": "rimraf dist/*",
     "build:commonjs": "babel src --out-dir dist --modules umd",
-    "build:bundle": "browserify src/index.js -t babelify -s crossflow --ignore-missing --outfile dist/crossflow-client-bundle.js",
-    "build:min": "browserify src/index.js -t babelify -s crossflow --ignore-missing | uglifyjs > dist/crossflow-client-bundle.min.js",
+    "build:bundle": "browserify src/index.js -t babelify -s iot-nodejs --ignore-missing --outfile dist/iot-nodejs-client-bundle.js",
+    "build:min": "browserify src/index.js -t babelify -s iot-nodejs --ignore-missing | uglifyjs > dist/iot-nodejs-client-bundle.min.js",
     "build": "npm run clean && npm run build:commonjs && npm run build:bundle && npm run build:min",
     "prepublish": "npm run build",
     "test": "mocha --compilers js:babel/register",

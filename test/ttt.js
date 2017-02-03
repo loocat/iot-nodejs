@@ -87,15 +87,15 @@ var lib = require('../src/index');
 // var client = new lib.device(config.dev);
 var client = new lib.application(config.app);
 
-let aaa = Reflect.ownKeys(Reflect.getPrototypeOf(client));
+let aaa = Reflect.ownKeys(Reflect.getPrototypeOf(client)).sort();
 aaa.map(key => console.log(key, typeof client[key], client[key] instanceof Function));
-let fre = /^([^(]+)\(([^)]+)\)/;
+let fre = /^([^(]+)\(([^)]*)\)/;
 aaa.map(key => {
   let rrr = fre.exec(client[key].toString());
   if (rrr) {
     console.log(typeof rrr);
     // console.log(Object.keys(rrr));
-    console.log(key, rrr[2].split(',').map(e => e.trim()));
+    console.log(key, rrr[2].split(',').map(e => e.trim()).filter(e => e));
   }
 });
 return;
